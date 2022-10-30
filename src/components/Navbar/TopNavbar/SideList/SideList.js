@@ -5,15 +5,15 @@ import { RiCloseFill } from "react-icons/ri";
 import Overlay from "../../../ui/Overlay/Overlay";
 
 import classes from "./SideList.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Button from "../../../ui/Button/Button";
 import { userActions } from "../../../../store/user";
 
 function SideList({ showList, onShowList }) {
   const userToken = useSelector((state) => state.user.userToken);
   const cartItemsLength = useSelector((state) => state.cart.cart).length;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const signoutHandler = () => {
     dispatch(userActions.getUserToken(""));
@@ -46,15 +46,11 @@ function SideList({ showList, onShowList }) {
           </span>
         </div>
         <ul className={classes.bottom}>
-          <li>
-            <Link to="/orders">Orders</Link>
-          </li>
-          <li className={classes.cart}>
-            <Link to="/cart">
-              <span>{cartItemsLength}</span>
-              <AiOutlineShoppingCart />
-              <p>Cart</p>
-            </Link>
+          <li onClick={() => navigate("/orders")}>Orders</li>
+          <li className={classes.cart} onClick={() => navigate("/cart")}>
+            <span>{cartItemsLength}</span>
+            <AiOutlineShoppingCart />
+            <p>Cart</p>
           </li>
         </ul>
       </div>

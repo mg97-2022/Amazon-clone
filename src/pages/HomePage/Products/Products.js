@@ -1,6 +1,5 @@
 import React, { Fragment, useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import Loading from "../../../components/ui/Loading/Loading";
 import useHttp from "../../../hooks/use-http";
 import { fetchedProductsActions } from "../../../store/fetchedProducts";
@@ -70,7 +69,7 @@ function Products() {
     }
   }, [setProducts, searchBarValue, fetchedItems]);
 
-  // reset filtered products when navigating to another page
+  // reset filtered products when page loads
   useEffect(() => {
     dispatch(searchBarActions.getEnteredValue(""));
   }, [dispatch]);
@@ -85,17 +84,24 @@ function Products() {
     );
   } else if (!!error) {
     output = (
-      <div className={classes.error}>
+      <div className={classes.text_content}>
         <p>something went wrong!</p>
         <p>please try again</p>
       </div>
     );
-  } else if (!isLoading && !error) {
+  } else if (!isLoading && !error && products.length !== 0) {
     output = (
       <div className={`container ${classes.products}`}>
         {products.map((product) => {
           return <Item key={product.id} product={product} />;
         })}
+      </div>
+    );
+  } else if (!isLoading && !error && products.length === 0) {
+    output = (
+      <div className={classes.text_content}>
+        <p>found no products?</p>
+        <p>enter something else</p>
       </div>
     );
   }

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { cartActions } from "../../../../../store/cart";
 import classes from "./AddToCart.module.css";
 
-function AddToCart({ product }) {
+function AddToCart({ quantity = 1, product }) {
   const dispatch = useDispatch();
   const [addedToCart, setAddedToCart] = useState(false);
   const cartItems = useSelector((state) => state.cart.cart);
@@ -18,13 +18,25 @@ function AddToCart({ product }) {
   }, [cartItems, setAddedToCart, product]);
 
   const addToCartHandler = () => {
-    dispatch(cartActions.addToCart({ ...product, quantity: 1 }));
+    dispatch(cartActions.addToCart({ ...product, quantity: quantity }));
     setAddedToCart(true);
   };
   return (
     <div className={classes.cart}>
-      {!addedToCart && <button id="cart" className="add_to_cart_btn" onClick={addToCartHandler}>add to cart</button>}
-      {addedToCart && <div id="added_cart" className="add_to_cart_btn">added to cart</div>}
+      {!addedToCart && (
+        <button
+          id="cart"
+          className="add_to_cart_btn"
+          onClick={addToCartHandler}
+        >
+          add to cart
+        </button>
+      )}
+      {addedToCart && (
+        <div id="added_cart" className="add_to_cart_btn">
+          added to cart
+        </div>
+      )}
     </div>
   );
 }

@@ -26,7 +26,7 @@ function App() {
       setTimeout(() => {
         dispatch(signMessageActions.hideMessage());
         firstLoad = false;
-      }, 8000);
+      }, 5000);
     }
   }, [dispatch]);
 

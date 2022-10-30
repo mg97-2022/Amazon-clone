@@ -16,7 +16,7 @@ function ImagesPart({ images }) {
           return (
             <div key={i}>
               <img
-                className={+imgIndex === +i && classes.active_img}
+                className={+imgIndex === +i ? classes.active_img : ""}
                 id={i}
                 onMouseEnter={changeImageHandler}
                 src={img}

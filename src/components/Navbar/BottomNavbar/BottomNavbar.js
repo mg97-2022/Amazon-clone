@@ -38,6 +38,7 @@ function BottomNavbar() {
   const sortProductsHandler = (e) => {
     const sortedProducts = e.target.innerText.toLowerCase();
     dispatch(fetchedProductsActions.sortProducts(sortedProducts));
+    setShowList(false)
   };
 
   return (

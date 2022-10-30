@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Card from "../../../../components/ui/Card/Card";
 import { formatNumbers } from "../../../../generalFunctions/generalFunctions";
 import { cartActions } from "../../../../store/cart";
+import AddToCart from "../../../HomePage/Products/Item/AddToCart/AddToCart";
 import PurchaseNumber from "./PurchaseNumber/PurchaseNumber";
 import classes from "./PurchasePart.module.css";
 
@@ -11,6 +13,7 @@ function PurchasePart({ product }) {
   const [productQty, setProductQty] = useState(1);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const cartItems = useSelector((state) => state.cart.cart);
   const {
     discountPercentage,
     randomNumOfStars,
@@ -29,20 +32,12 @@ function PurchasePart({ product }) {
   const getProductNumberHandler = (productQuantity) => {
     setProductQty(productQuantity);
   };
-  const sendProductToCartHandler = () => {
-    dispatch(
-      cartActions.addToCart({
-        ...product,
-        quantity: productQty,
-      })
-    );
-  };
 
   const buyNowHandler = () => {
     dispatch(
       cartActions.addToCart({
         ...product,
-        quantity: 1,
+        quantity: productQty,
       })
     );
     navigate("/cart");
@@ -55,9 +50,7 @@ function PurchasePart({ product }) {
         <PurchaseNumber onGetProductsNumber={getProductNumberHandler} />
       </div>
       <div className={classes.btns}>
-        <button onClick={sendProductToCartHandler} className="add_to_cart_btn">
-          add to cart
-        </button>
+        <AddToCart quantity={productQty} product={product} />
         <button onClick={buyNowHandler} className="btn">
           buy now
         </button>

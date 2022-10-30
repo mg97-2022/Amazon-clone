@@ -40,27 +40,24 @@
   cursor: pointer;
 }
 .bottom {
-  padding: 20px 0;
+  padding: 20px 0 10px;
 }
 .bottom li {
   padding: 5px 15px;
   height: 50px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 .bottom li:hover {
   background-color: rgb(245, 244, 244);
 }
-.bottom li a {
+.bottom li  {
   color: black;
 }
 .cart {
   position: relative;
-}
-.cart a {
-  display: flex;
-  align-items: center;
 }
 .cart svg {
   font-size: 25px;
