@@ -1,14 +1,6 @@
 import React, { Suspense } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import LoadingPage from "./pages/LoadingPage/LoadingPage";
-// import CartPage from "./pages/CartPage/CartPage";
-// import DetailPage from "./pages/DetailPage/DetailPage";
-// import HomePage from "./pages/HomePage/HomePage";
-// import SigninPage from "./pages/SigninPage/SigninPage";
-// import SignupPage from "./pages/SignupPage/SignupPage";
-// import EmailExistPage from "./pages/SignupPage/EmailExistPage/EmailExistPage";
-// import SuccessPage from "./pages/SuccessPage/SuccessPage";
-// import OrdersPage from "./pages/OrdersPage/OrdersPage";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { signMessageActions } from "./store/signMessage";

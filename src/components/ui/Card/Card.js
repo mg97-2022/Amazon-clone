@@ -1,8 +1,12 @@
 import React from "react";
 import classes from "./Card.module.css";
 
-function Card({ children, className }) {
-  return <div className={`${className} ${classes.card}`}>{children}</div>;
+function Card({ onClick, children, className }) {
+  return (
+    <div onClick={onClick} className={`${className} ${classes.card}`}>
+      {children}
+    </div>
+  );
 }
 
 export default Card;

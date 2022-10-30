@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Card from "../../../../components/ui/Card/Card";
-import { cartActions } from "../../../../store/cart";
 import { productDetailsActions } from "../../../../store/productDetails";
 import {
   trimWord,
@@ -34,7 +33,10 @@ function Item({ product }) {
     price * ((100 + discountPercentage) / 100)
   );
 
-  const navToDetailPageHandler = () => {
+  const navToDetailPageHandler = (e) => {
+    if (e.target.id === 'cart' || e.target.id === 'added_cart') {
+      return;
+    }
     dispatch(
       productDetailsActions.getProductDetails({ ...product, randomNumOfStars })
     );
@@ -42,7 +44,7 @@ function Item({ product }) {
   };
 
   return (
-    <Card className={classes.item}>
+    <Card onClick={navToDetailPageHandler} className={classes.item}>
       <div onClick={navToDetailPageHandler} className={classes.image}>
         <img loading="lazy" src={img} alt="" />
       </div>
@@ -68,39 +70,3 @@ function Item({ product }) {
 }
 
 export default Item;
-
-// image slide
-// import { HiChevronRight } from "react-icons/hi";
-// import { HiChevronLeft } from "react-icons/hi";
-
-// const [imgIndex, setImgIndex] = useState(0);
-
-// const rightHandler = () => {
-//   const lastIndex = images.length - 1;
-//   if (imgIndex > lastIndex) {
-//     setImgIndex(0);
-//     return;
-//   } else {
-//     setImgIndex((prev) => prev++);
-//     console.log('hello')
-//   }
-// };
-
-// const leftHandler = () => {
-//   const lastIndex = images.length - 1;
-//   if (imgIndex <= 0) {
-//     setImgIndex(lastIndex);
-//     return;
-//   } else {
-//     setImgIndex((prev) => prev--);
-//   }
-// };
-
-/* <div className={classes.slide}>
-          <button onClick={leftHandler}>
-            <HiChevronLeft onClick={leftHandler} />
-          </button>
-          <button onClick={rightHandler}>
-            <HiChevronRight onClick={rightHandler}/>
-          </button>
-        </div> */
