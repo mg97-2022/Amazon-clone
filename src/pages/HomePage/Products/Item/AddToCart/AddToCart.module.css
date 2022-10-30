@@ -1,0 +1,15 @@
+.cart {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0 10px;
+}
+.cart div {
+  display: inline-block;
+  background-color: var(--light-blue);
+  cursor: default;
+  padding: 9.5px 11px;
+  font-weight: normal;
+}
+.cart div:hover {
+  background-color: var(--light-blue);
+}

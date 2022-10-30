@@ -1,0 +1,160 @@
+.header {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--dark-blue);
+  color: white;
+  position: relative;
+}
+.logo {
+  display: block;
+  width: 80px;
+  min-width: 80px;
+  margin-top: 33px;
+  height: 80px;
+  object-fit: contain;
+  position: relative;
+}
+.logo img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.sign a p {
+  margin: 0 !important;
+}
+.right {
+  min-width: 320px;
+  display: none;
+  align-items: center;
+  margin-left: 15px;
+}
+.right > a,
+.sign > a,
+.right button {
+  display: block;
+  padding: 7px;
+  margin-right: 10px;
+  position: relative;
+  color: white;
+}
+.right button {
+  background-color: transparent;
+  border: none;
+  text-align: start;
+}
+.right > a::before,
+.sign > a::before,
+.right button::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border: 2px solid white;
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  opacity: 0;
+}
+.right a:hover::before,
+.right button:hover::before {
+  opacity: 1;
+}
+.right > a:last-child {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.cart {
+  display: block;
+  font-size: 2.5rem;
+  position: relative;
+}
+.right > a:last-child span {
+  color: var(--dark-orange);
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 60%;
+}
+.right > a:last-child p:last-child {
+  margin-top: 15px;
+}
+.right a p,
+.right button p {
+  font-size: 0.9rem;
+}
+.right a p:last-child,
+.right button p:last-child {
+  font-weight: 600;
+}
+.bars {
+  margin: 0 15px;
+}
+.bars:hover svg {
+  color: var(--orange);
+}
+.bars svg {
+  font-size: 22px;
+  cursor: pointer;
+  transition: all var(--transition-duration);
+  -webkit-transition: all var(--transition-duration);
+  -moz-transition: all var(--transition-duration);
+  -ms-transition: all var(--transition-duration);
+  -o-transition: all var(--transition-duration);
+}
+.sign {
+  position: relative;
+}
+@media (min-width: 501px) {
+  .header {
+    height: 70px;
+  }
+  .logo {
+    width: 120px;
+    margin-top: 8px;
+  }
+  .search {
+    display: flex;
+  }
+}
+@media (min-width: 768px) {
+  .logo {
+    width: 150px;
+    margin: 0;
+  }
+  .logo::before {
+    content: "";
+    width: calc(100% - 35px);
+    height: calc(100% - 30px);
+    border: 2px solid white;
+    position: absolute;
+    top: 13px;
+    left: 5px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    opacity: 0;
+  }
+  .logo:hover::before {
+    opacity: 1;
+  }
+  .right {
+    display: flex;
+    justify-content: space-around;
+  }
+  .bars {
+    display: none;
+  }
+}

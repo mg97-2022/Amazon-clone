@@ -1,0 +1,17 @@
+.footer {
+  background-color: var(--bg-color);
+  width: 100%;
+  text-align: center;
+  height: 250px;
+  min-height: 100px;
+  padding: 20px 0;
+  font-size: .8rem;
+}
+.footer > div {
+  margin-bottom: 8px;
+}
+.footer > div span {
+  color: var(--link-blue-color);
+  text-transform: capitalize;
+  padding: 0 10px;
+}

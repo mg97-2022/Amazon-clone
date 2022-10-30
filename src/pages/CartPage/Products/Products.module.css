@@ -1,0 +1,23 @@
+.products {
+  padding: 20px;
+}
+.title {
+  border-bottom: 1px solid var(--border-color);
+  text-transform: capitalize;
+  margin-bottom: 5px;
+}
+.title h2 {
+  padding-bottom: 15px;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.title p {
+  text-align: end;
+  font-size: 0.9rem;
+  padding-bottom: 3px;
+}
+@media (min-width: 768px) {
+  .products {
+    grid-area: cart;
+  }
+}

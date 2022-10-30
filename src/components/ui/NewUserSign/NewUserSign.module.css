@@ -1,0 +1,18 @@
+.new {
+  font-size: 0.8rem;
+}
+.new p {
+  display: inline-block;
+  padding-right: 3px;
+}
+.new a {
+  color: var(--link-blue-color);
+}
+.new a:hover {
+  transition: all var(--transition-duration);
+  color: var(--orange);
+  -webkit-transition: all var(--transition-duration);
+  -moz-transition: all var(--transition-duration);
+  -ms-transition: all var(--transition-duration);
+  -o-transition: all var(--transition-duration);
+}

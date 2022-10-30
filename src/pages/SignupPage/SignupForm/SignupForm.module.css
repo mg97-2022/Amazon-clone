@@ -1,0 +1,59 @@
+.container {
+  padding: 15px 15px 0;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  max-width: 92%;
+}
+.form h2 {
+  font-weight: normal;
+  font-size: 1.75rem;
+  margin-bottom: 25px;
+}
+
+.form button[type="submit"] {
+  width: 100%;
+  color: black;
+  background-color: var(--light-orange);
+  outline: none;
+  border: 1px solid rgb(168, 168, 168);
+  height: 30px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.text {
+  font-size: 0.8rem;
+  line-height: var(--line-height);
+  margin-bottom: 20px;
+}
+.text span {
+  color: var(--link-blue-color);
+}
+.signin {
+  border-top: 1px solid #eee;
+  background-color: rgb(252, 252, 252);
+  width: calc(100% + 30px);
+  position: relative;
+  left: -15px;
+  padding: 20px 15px;
+  font-size: .9rem;
+}
+.signin p {
+  display: inline-block;
+  padding-right: 3px;
+}
+.signin a {
+  font-weight: 700;
+  color: var(--link-blue-color);
+  display: inline-flex;
+  align-items: center;
+}
+@media (min-width:501px) {
+  .container {
+    width: 350px;
+  }
+}

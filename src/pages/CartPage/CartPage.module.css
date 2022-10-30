@@ -1,0 +1,22 @@
+.cart {
+  background-color: var(--bg-color);
+  overflow-x: hidden;
+}
+.cart {
+  background-color: var(--bg-color);
+  overflow-x: hidden;
+}
+.content {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 768px) {
+  .content {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas: "cart cart cart cart total"
+      "later later later later .";
+  }
+}

@@ -1,0 +1,83 @@
+.content {
+  max-width: 92%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.card {
+  padding: 15px 15px 0;
+  margin-bottom: 30px;
+  width: 100%;
+}
+.form h2 {
+  font-weight: normal;
+  font-size: 1.75rem;
+  margin-bottom: 25px;
+}
+.form button[type="submit"] {
+  padding: 8px 0;
+  width: 100%;
+  color: black;
+  background-color: var(--light-orange);
+  outline: none;
+  border: 1px solid rgb(168, 168, 168);
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.text {
+  font-size: 0.8rem;
+  line-height: var(--line-height);
+  margin-bottom: 20px;
+}
+.text span {
+  color: var(--link-blue-color);
+}
+.signup {
+  text-align: center;
+}
+.signup p {
+  margin-bottom: 10px;
+  color: #777;
+  font-size: .9rem;
+  background-color: white;
+  position: relative;
+}
+.signup p::after,
+.signup p::before{
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: calc(50% - 65px);
+  height: 1px;
+  background-color: rgb(226, 226, 226);
+}
+.signup p::before {
+  left: 0;
+}
+.signup p::after {
+  right: 0;
+}
+.signup a {
+  display: block;
+  padding: 8px 0;
+  color: black;
+  background-color: #eaebee;
+  width: 100%;
+  color: black;
+  outline: none;
+  border: 1px solid rgb(204, 203, 203);
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+@media (min-width: 501px) {
+  .content {
+    width: 350px;
+  }
+}

@@ -1,0 +1,34 @@
+.empty {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.empty h2 {
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+.empty a {
+  padding: 10px 20px;
+}
+.loading {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.orders {
+  margin-bottom: 50px;
+}
+.orders h2 {
+  font-size: 1.5rem;
+  padding: 20px 0;
+}
+@media (min-width: 768px) {
+  .orders h2 {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,11 @@
+.total p {
+  font-size: 1.125rem;
+}
+.total p span {
+  font-weight: bold;
+}
+@media (min-width: 768px) {
+  .total {
+    grid-area: total;
+  }
+}

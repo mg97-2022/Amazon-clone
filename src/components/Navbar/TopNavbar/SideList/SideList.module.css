@@ -1,0 +1,75 @@
+.list {
+  position: absolute;
+  top: 0;
+  background-color: white;
+  color: black;
+  min-width: 300px;
+  max-width: 90%;
+  z-index: 1000;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--blue);
+  padding: 15px;
+  color: white;
+}
+.user {
+  color: white;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.user svg {
+  margin-right: 10px;
+  font-size: 25px;
+}
+.top span svg {
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+}
+.bottom {
+  padding: 20px 0;
+}
+.bottom li {
+  padding: 5px 15px;
+  height: 50px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+.bottom li:hover {
+  background-color: rgb(245, 244, 244);
+}
+.bottom li a {
+  color: black;
+}
+.cart {
+  position: relative;
+}
+.cart a {
+  display: flex;
+  align-items: center;
+}
+.cart svg {
+  font-size: 25px;
+  margin-right: 10px;
+}
+.cart span {
+  position: absolute;
+  color: var(--orange);
+  font-weight: 600;
+  top: -1px;
+  right: 265px;
+}

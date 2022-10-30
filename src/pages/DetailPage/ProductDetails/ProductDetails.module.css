@@ -1,0 +1,13 @@
+.product {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 20px;
+  padding: 20px;
+}
+
+@media (min-width: 992px) {
+  .product {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas: "images images images images images  info info info info purchase purchase purchase";
+  }
+}

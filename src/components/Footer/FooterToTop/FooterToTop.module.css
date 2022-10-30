@@ -1,0 +1,11 @@
+.to_top {
+  display: block;
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: var(--light-blue);
+  text-align: center;
+  color: white;
+  padding: 15px 0;
+  cursor: pointer;
+}
