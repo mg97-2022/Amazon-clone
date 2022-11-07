@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import LoadingPage from "./pages/LoadingPage/LoadingPage";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";

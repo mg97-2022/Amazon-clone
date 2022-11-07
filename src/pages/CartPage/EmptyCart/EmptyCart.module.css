@@ -5,11 +5,12 @@
 }
 .img {
   width: 35%;
-  min-width: 200px;
-  margin-right: 30px;
+  min-width: 180px;
+  margin: 0 auto;
 }
 .img img {
   width: 100%;
+  aspect-ratio: 1/1;
 }
 .links {
   flex: 1;
@@ -49,6 +50,9 @@
   background-color: rgb(212, 212, 212);
 }
 @media (min-width: 768px) {
+  .img {
+      margin-right: 30px;
+  }
   .content {
     flex-direction: row;
   }

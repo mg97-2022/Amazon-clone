@@ -2,14 +2,10 @@
   background-color: var(--bg-color);
   overflow-x: hidden;
 }
-.cart {
-  background-color: var(--bg-color);
-  overflow-x: hidden;
-}
 .content {
   padding: 20px;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(200px, 1fr);
   gap: 20px;
 }
 @media (min-width: 768px) {

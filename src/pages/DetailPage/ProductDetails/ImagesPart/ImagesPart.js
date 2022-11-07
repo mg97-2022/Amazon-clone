@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Card from "../../../../components/ui/Card/Card";
 import classes from "./ImagesPart.module.css";
 

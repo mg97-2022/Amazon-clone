@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../../components/ui/Loading/Loading";
 import useHttp from "../../../hooks/use-http";
@@ -8,20 +8,24 @@ import Item from "./Item/Item";
 import classes from "./Products.module.css";
 
 function Products() {
-  const [products, setProducts] = useState([]);
-  const dispatch = useDispatch();
   const fetchedItems = useSelector(
     (state) => state.fetchedProducts.fetchedProducts
   );
+  const [products, setProducts] = useState(fetchedItems);
+  const dispatch = useDispatch();
+
   const sortProducts = useSelector(
     (state) => state.fetchedProducts.sortProducts
   );
   const searchBarValue = useSelector((state) => state.searchBar.enteredValue);
   const { error, isLoading, sendRequest } = useHttp();
 
-  // function to handle fetched products
-  const handleProducts = useCallback(
-    (data) => {
+  // send request to fetch products data
+  useEffect(() => {
+    (async () => {
+      const data = await sendRequest({
+        url: "https://dummyjson.com/products/",
+      });
       const fetchedProducts = [];
       for (const product of data.products) {
         fetchedProducts.push({
@@ -30,19 +34,8 @@ function Products() {
         });
       }
       dispatch(fetchedProductsActions.fetchProducts(fetchedProducts));
-    },
-    [dispatch]
-  );
-
-  // send request to fetch products data
-  useEffect(() => {
-    sendRequest(
-      {
-        url: "https://dummyjson.com/products/",
-      },
-      handleProducts
-    );
-  }, [sendRequest, handleProducts]);
+    })();
+  }, [sendRequest, dispatch]);
 
   // sort products according to category
   useEffect(() => {
@@ -58,6 +51,12 @@ function Products() {
 
   // filter products according to search bar value
   useEffect(() => {
+    if (!searchBarValue.match(/[a-z]/gi)) {
+      setProducts(fetchedItems);
+    }
+    if (!searchBarValue.match(/[a-z]/gi)) {
+      return;
+    }
     if (searchBarValue === "") {
       setProducts(fetchedItems);
     } else {

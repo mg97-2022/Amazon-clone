@@ -30,6 +30,7 @@ function TopNavbar({ home }) {
       <Link to="/" className={classes.logo}>
         <img src={image} alt="amazon" />
       </Link>
+      <div className={classes.line_break}></div>
       <SearchBar />
       <div className={classes.right}>
         {userToken === "" && (

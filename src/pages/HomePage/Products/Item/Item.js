@@ -19,27 +19,22 @@ function Item({ product }) {
   const {
     discountPercentage,
     id,
-    brand,
-    category,
-    rating,
-    stock,
     title,
     description,
     price,
     img,
-    images,
   } = product;
   const priceBeforeDiscount = Math.round(
     price * ((100 + discountPercentage) / 100)
   );
 
   const navToDetailPageHandler = (e) => {
-    if (e.target.id === 'cart' || e.target.id === 'added_cart') {
+    if (e.target.id === "cart" || e.target.id === "added_cart") {
       return;
     }
-    dispatch(
-      productDetailsActions.getProductDetails({ ...product, randomNumOfStars })
-    );
+    // dispatch(
+    //   productDetailsActions.getProductDetails({ ...product, randomNumOfStars })
+    // );
     navigate(`/products/${id}`);
   };
 
