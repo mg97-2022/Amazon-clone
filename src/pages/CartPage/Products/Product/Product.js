@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { cartActions } from "../../../../store/cart";
 import { cartLaterActions } from "../../../../store/cartLater";
-import { productDetailsActions } from "../../../../store/productDetails";
 import classes from "./Product.module.css";
 import ProductInput from "./ProductInput/ProductInput";
 
@@ -12,17 +11,11 @@ function Product({ item }) {
   const navigate = useNavigate();
   const {
     quantity,
-    discountPercentage,
     id,
-    brand,
-    category,
-    rating,
-    stock,
     title,
     description,
     price,
     img,
-    images,
   } = item;
 
   const removeItemHandler = () => {
@@ -35,7 +28,6 @@ function Product({ item }) {
   };
 
   const showDetailHandler = () => {
-    dispatch(productDetailsActions.getProductDetails({ ...item }));
     navigate(`/products/${id}`);
   };
 

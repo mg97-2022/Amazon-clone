@@ -11,24 +11,20 @@ function OrdersContent() {
   const userToken = useSelector((state) => state.user.userToken);
   const { error, isLoading, sendRequest } = useHttp();
 
-  const responseHandler = (data) => {
-    const fetchedOrders = [];
-    for (const key in data) {
-      data[key].forEach((item) => {
-        fetchedOrders.push(item);
-      });
-    }
-    setOrders(fetchedOrders);
-  };
-
   useEffect(() => {
     if (userToken !== "") {
-      sendRequest(
-        {
+      (async () => {
+        const data = await sendRequest({
           url: `${process.env.REACT_APP_FIREBASE_PROJECT}${userToken}.json`,
-        },
-        responseHandler
-      );
+        });
+        const fetchedOrders = [];
+        for (const key in data) {
+          data[key].forEach((item) => {
+            fetchedOrders.push(item);
+          });
+        }
+        setOrders(fetchedOrders);
+      })();
     }
   }, [sendRequest, userToken]);
 
@@ -36,15 +32,19 @@ function OrdersContent() {
     return (
       <div className={classes.empty}>
         <h2>have no orders!</h2>
-        <Link className="btn" to="/">let's buy Something</Link>
+        <Link className="btn" to="/">
+          let's buy Something
+        </Link>
       </div>
     );
   }
 
   if (isLoading) {
-    return <div className={classes.loading}>
-      <Loading />
-    </div>
+    return (
+      <div className={classes.loading}>
+        <Loading />
+      </div>
+    );
   }
 
   return (

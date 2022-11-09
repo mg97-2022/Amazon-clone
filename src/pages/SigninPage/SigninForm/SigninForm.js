@@ -5,44 +5,55 @@ import AlertMessage from "./AlertMessage/AlertMessage";
 import InputFields from "./InputFields/InputFields";
 import useHttp from "../../../hooks/use-http";
 import classes from "./SigninForm.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "../../../store/user";
+import { cartActions } from "../../../store/cart";
 
 function SigninForm() {
   const { error, isLoading, sendRequest } = useHttp();
   const [userData, setUserData] = useState({});
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const returnToCart = useSelector((state) => state.cart.returnToCart);
 
   const getUserDataHandler = useCallback((data) => {
     setUserData(data);
   }, []);
 
-  const responseHandler = (response) => {
-    const userToken = `${response.email.replace(".", "")}${response.localId}`;
-    dispatch(userActions.getUserToken(userToken))
-    navigate('/')
-  }
-
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
-    sendRequest({
-      url: `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_KEY}`,
-      method: "POST",
-      body: {
-        ...userData,
-        returnSecureToken: true,
-      },
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }, responseHandler);
+    (async () => {
+      const data = await sendRequest({
+        url: `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_KEY}`,
+        method: "POST",
+        body: {
+          ...userData,
+          returnSecureToken: true,
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      
+      if (!!error) {
+        return;
+      }
+
+      const userToken = `${data.email.replace(".", "")}${data.localId}`;
+      dispatch(userActions.getUserToken(userToken));
+      if (returnToCart) {
+        navigate("/cart");
+        dispatch(cartActions.returnToCartHandler(false));
+      } else {
+        navigate("/", { replace: true });
+      }
+    })();
   };
 
   return (
     <div className={classes.content}>
-      {error && <AlertMessage error={error}/>}
+      {error && <AlertMessage error={error} />}
       <Card className={classes.card}>
         <form className={classes.form} onSubmit={formSubmitHandler}>
           <h2>Sign in</h2>

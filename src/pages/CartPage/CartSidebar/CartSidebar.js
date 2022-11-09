@@ -14,10 +14,10 @@ function CartSidebar() {
   const cartItems = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
   const { error, isLoading, sendRequest } = useHttp();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const sendCartDataToServerHandler = () => {
-    if (userToken === '') {
+    if (userToken === "") {
       return;
     }
     sendRequest({
@@ -29,7 +29,12 @@ function CartSidebar() {
       },
     });
     dispatch(cartActions.resetCart());
-    navigate('/success')
+    navigate("/success");
+  };
+
+  const userLogHandler = () => {
+    dispatch(cartActions.returnToCartHandler(true));
+    navigate("/signin");
   };
 
   return (
@@ -44,10 +49,10 @@ function CartSidebar() {
       {userToken === "" && (
         <Fragment>
           <p className={classes.log}>log in first</p>
-          <Link className="btn" to="/signin">
-            Sign in
-          </Link>
-         <NewUserSign />
+          <Button onClick={userLogHandler}>Sign in</Button>
+          <NewUserSign
+            onClick={() => dispatch(cartActions.returnToCartHandler(true))}
+          />
         </Fragment>
       )}
     </Card>

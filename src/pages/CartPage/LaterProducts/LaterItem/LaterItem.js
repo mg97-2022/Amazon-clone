@@ -4,7 +4,6 @@ import { trimWord } from "../../../../generalFunctions/generalFunctions";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../../store/cart";
 import { cartLaterActions } from "../../../../store/cartLater";
-import { productDetailsActions } from "../../../../store/productDetails";
 import { useNavigate } from "react-router-dom";
 import Card from "../../../../components/ui/Card/Card";
 function LaterItem({ item }) {
@@ -35,9 +34,6 @@ function LaterItem({ item }) {
   };
 
   const showDetailHandler = () => {
-    dispatch(
-      productDetailsActions.getProductDetails({ ...item })
-    );
     navigate(`/products/${id}`)
   }
 

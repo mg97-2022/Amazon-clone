@@ -19,8 +19,6 @@ function CartPage() {
     }
   }, [cartItems]);
 
-
-
   return (
     <div className={classes.cart}>
       <TopNavbar />

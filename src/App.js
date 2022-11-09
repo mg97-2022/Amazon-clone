@@ -19,6 +19,7 @@ const OrdersPage = React.lazy(() => import("./pages/OrdersPage/OrdersPage"));
 export let firstLoad = true;
 
 function App() {
+  
   // show sign message when the website loads first time
   const dispatch = useDispatch();
   useEffect(() => {

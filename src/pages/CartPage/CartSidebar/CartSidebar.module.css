@@ -16,7 +16,7 @@
   cursor: not-allowed;
 }
 .checkout button:hover.disable {
-background-color: rgb(192, 192, 192) !important;
+  background-color: rgb(192, 192, 192) !important;
 }
 .log {
   margin: 20px 0 -10px;
@@ -31,7 +31,7 @@ background-color: rgb(192, 192, 192) !important;
 }
 @media (min-width: 768px) {
   .checkout > button,
-.checkout a {
-  margin: 20px auto 10px;
-}
+  .checkout a {
+    margin: 20px auto 10px;
+  }
 }

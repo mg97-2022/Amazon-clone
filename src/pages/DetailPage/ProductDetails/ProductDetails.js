@@ -16,6 +16,7 @@ function ProductDetails() {
   const [randomNumOfStars] = useState(Math.floor(Math.random() * 5 + 1));
   const { product_details } = useParams();
   const { sendRequest, error, isLoading } = useHttp();
+
   useEffect(() => {
     (async () => {
       const data = await sendRequest({
@@ -25,6 +26,7 @@ function ProductDetails() {
       dispatch(
         productDetailsActions.getProductDetails({
           ...data,
+          img: data.thumbnail,
           randomNumOfStars,
         })
       );

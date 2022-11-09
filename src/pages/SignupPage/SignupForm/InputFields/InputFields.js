@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect } from "react";
 import useInput from "../../../../hooks/use-input";
 import { IoAlertOutline } from "react-icons/io5";
 import classes from "./InputFields.module.css";

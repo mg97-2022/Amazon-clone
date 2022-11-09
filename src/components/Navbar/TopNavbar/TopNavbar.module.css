@@ -138,11 +138,11 @@
   }
   .logo::before {
     content: "";
-    width: calc(100% - 35px);
-    height: calc(100% - 30px);
+    width: calc(100% - 15px);
+    height: calc(100% - 40px);
     border: 2px solid white;
     position: absolute;
-    top: 13px;
+    top: 18px;
     left: 5px;
     border-radius: 3px;
     -webkit-border-radius: 3px;

@@ -3,7 +3,6 @@ import { FaStar } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Card from "../../../../components/ui/Card/Card";
-import { productDetailsActions } from "../../../../store/productDetails";
 import {
   trimWord,
   formatNumbers,
@@ -12,7 +11,6 @@ import AddToCart from "./AddToCart/AddToCart";
 import classes from "./Item.module.css";
 
 function Item({ product }) {
-  const dispatch = useDispatch();
   const [randomNumOfStars] = useState(Math.floor(Math.random() * 5 + 1));
   const navigate = useNavigate();
 
@@ -32,9 +30,6 @@ function Item({ product }) {
     if (e.target.id === "cart" || e.target.id === "added_cart") {
       return;
     }
-    // dispatch(
-    //   productDetailsActions.getProductDetails({ ...product, randomNumOfStars })
-    // );
     navigate(`/products/${id}`);
   };
 

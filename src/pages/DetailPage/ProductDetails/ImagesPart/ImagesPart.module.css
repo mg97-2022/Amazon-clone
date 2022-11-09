@@ -32,7 +32,8 @@
 }
 .show_img img {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 4/3;
+  object-fit: contain;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
