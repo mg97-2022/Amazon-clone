@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { cartActions } from "../../../../../store/cart";
+import React, { useState } from "react";
 import classes from "./PurchaseNumber.module.css"
 function PurchaseNumber({onGetProductsNumber}) {
   const [quantityValue, setQuantityValue] = useState(1);

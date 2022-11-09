@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from "../../../components/ui/Button/Button";
 import Card from "../../../components/ui/Card/Card";
 import NewUserSign from "../../../components/ui/NewUserSign/NewUserSign";
@@ -13,7 +13,7 @@ function CartSidebar() {
   const userToken = useSelector((state) => state.user.userToken);
   const cartItems = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
-  const { error, isLoading, sendRequest } = useHttp();
+  const { sendRequest } = useHttp();
   const navigate = useNavigate();
 
   const sendCartDataToServerHandler = () => {

@@ -13,21 +13,7 @@ function PurchasePart({ product }) {
   const [productQty, setProductQty] = useState(1);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const cartItems = useSelector((state) => state.cart.cart);
-  const {
-    discountPercentage,
-    randomNumOfStars,
-    id,
-    brand,
-    category,
-    rating,
-    stock,
-    title,
-    description,
-    price,
-    img,
-    images,
-  } = product;
+  const { price } = product;
 
   const getProductNumberHandler = (productQuantity) => {
     setProductQty(productQuantity);

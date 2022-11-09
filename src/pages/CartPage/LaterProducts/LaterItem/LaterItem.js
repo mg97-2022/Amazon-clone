@@ -10,18 +10,11 @@ function LaterItem({ item }) {
   const dispatch = useDispatch();
   const navigate = useNavigate()
   const {
-    quantity,
-    discountPercentage,
     id,
-    brand,
-    category,
-    rating,
-    stock,
     title,
     description,
     price,
     img,
-    images,
   } = item;
 
   const moveToCartHandler = () => {

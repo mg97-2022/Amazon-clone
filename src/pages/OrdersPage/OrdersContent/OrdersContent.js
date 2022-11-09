@@ -9,7 +9,7 @@ import Loading from "../../../components/ui/Loading/Loading";
 function OrdersContent() {
   const [orders, setOrders] = useState([]);
   const userToken = useSelector((state) => state.user.userToken);
-  const { error, isLoading, sendRequest } = useHttp();
+  const {  isLoading, sendRequest } = useHttp();
 
   useEffect(() => {
     if (userToken !== "") {

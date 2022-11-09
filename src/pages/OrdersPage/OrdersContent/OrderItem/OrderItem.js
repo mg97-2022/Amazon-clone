@@ -4,18 +4,10 @@ import classes from "./OrderItem.module.css";
 
 function OrderItem({ order }) {
   const {
-    quantity,
-    discountPercentage,
-    id,
-    brand,
-    category,
-    rating,
-    stock,
     title,
     description,
     price,
     img,
-    images,
   } = order;
   return (
     <Card className={classes.order}>
