@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import classes from "./PurchaseNumber.module.css"
-function PurchaseNumber({onGetProductsNumber}) {
+import classes from "./PurchaseNumber.module.css";
+function PurchaseNumber({ onGetProductsNumber }) {
   const [quantityValue, setQuantityValue] = useState(1);
 
   const quantityChangeHandler = (e) => {
     setQuantityValue(e.target.value);
-    onGetProductsNumber(e.target.value)
-    
+    onGetProductsNumber(e.target.value);
   };
   return (
     <div className={classes.input}>
@@ -22,4 +21,4 @@ function PurchaseNumber({onGetProductsNumber}) {
   );
 }
 
-export default PurchaseNumber
+export default PurchaseNumber;

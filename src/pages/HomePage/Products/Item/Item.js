@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Card from "../../../../components/ui/Card/Card";
 import {
