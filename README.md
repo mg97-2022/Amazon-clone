@@ -8,7 +8,7 @@ E-commerce using React.js, Redux, CSS :-
 
 3- Fetching data from restful API
 
-4- Favorite movies page for each user managed by firebase as backend
+4- Cart page managed by redux and orders page for previous purchases for each user
 
 5- Fully responsive on mobile, tablet and desktop
 
