@@ -11,8 +11,8 @@
 .image img {
   display: block;
   width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
+  aspect-ratio: 16/9;
+  object-fit: contain;
   object-position: center;
   border-radius: 3px;
   -webkit-border-radius: 3px;
